@@ -34,8 +34,23 @@ public class Soru_12 {
      */
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("sayıyı gırınız : ");
+        System.out.println(powerOfThree(scan.nextInt()));
 
+    }
 
+    private static boolean powerOfThree(int sayı) {
+        boolean isPower = true;
+        if (sayı <= 0) return false;
+        if (sayı == 1) return true;
+        for (int i = 3; i <= sayı; i *= 3) {
+            if (sayı % i != 0) {
+                isPower = false;
+            }
+        }
+
+        return isPower;
     }
 
 

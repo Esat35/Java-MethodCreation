@@ -20,11 +20,38 @@ public class Soru_10_Guzel {
 
     public static void main(String[] args) {
 
-
+        toplaCıkar();
 
     }
 
+    private static void toplaCıkar() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("10 haneli bir sayı gırınız : ");
+        String sayı = scan.nextLine();
+        int sonuc = 0;
+
+
+        int rakam = 0;
+        try {
+            for (int i = 0; i < sayı.length(); i++) {
+                rakam = Integer.parseInt(sayı.substring(i, i + 1));
+                if (rakam % 2 == 0) {
+                    sonuc += rakam;
+                } else {
+                    sonuc -= rakam;
+                }
+            }
+            System.out.println("sonuc : " + sonuc);
+        } catch (NumberFormatException e) {
+            System.out.println("dum degerler sayı olmalı. yenıden deneyınız ");
+            toplaCıkar();
+        }
+
+    }
 
 }
+
+
+
 
 

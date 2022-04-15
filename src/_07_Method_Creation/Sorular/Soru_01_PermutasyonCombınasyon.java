@@ -4,7 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Soru_01_PermutasyonCombınasyon {
-  static  Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
+
     /*  Problem Tanımı
         Verilen iki sayının kombinasyonunu bulan kodu yazınız.
         Hatırlatma C(n,r) = n! / (r!(n-r)!)
@@ -24,7 +25,7 @@ public class Soru_01_PermutasyonCombınasyon {
         permütasyon: 60
       */
     public static void main(String[] args) {
-islemMenu();
+        islemMenu();
 
 
     }
@@ -36,19 +37,19 @@ islemMenu();
                 "\n3.Çıkış" +
                 "\n==========================================" +
                 "\nyapmak istedıgınız ıslemı secınız : ");
-      int secim=scan.nextInt();
-        switch (secim){
+        int secim = scan.nextInt();
+        switch (secim) {
             case 1:
                 permutasyon();
                 islemMenu();
                 break;
             case 2:
-           combinasyon();
-           islemMenu();
-           break;
+                combinasyon();
+                islemMenu();
+                break;
             case 3:
-            cıkıs();
-            break;
+                cıkıs();
+                break;
             default:
                 System.out.println("hatalı secım yaptınız tekrar deneyınız ..");
                 islemMenu();
@@ -58,26 +59,23 @@ islemMenu();
     private static void combinasyon() {
         System.out.print("\n=======    COMBINASYON HEAPLAMA    ======= \n");
 
-        try {
-            System.out.print("Combinasyonu hesaplanacak sayıyı gırınız : ");
-          int  sayi1=scan.nextInt();
-            System.out.print(sayi1+" sayısının kaclı combınasyonunu almak istiyorsunuz.");
-           int sayi2=scan.nextInt();
 
-            if (sayi1<sayi2){
+            System.out.print("Combinasyonu hesaplanacak sayıyı gırınız : ");
+            int sayi1 = scan.nextInt();
+            System.out.print(sayi1 + " sayısının kaclı combınasyonunu almak istiyorsunuz.");
+            int sayi2 = scan.nextInt();
+
+            if (sayi1 < sayi2) {
                 System.out.println("permutasyonu alınacak sayıdan daha buyuk sayı gıremezsınız. Tekrar deneyınız.");
                 combinasyon();
-            }else {
-                long combinasyon=faktoryelBul(sayi1)/(faktoryelBul(sayi1-sayi2)*faktoryelBul(sayi2));
-                System.out.println("C("+sayi1+","+sayi2+")= "+combinasyon);
+            } else {
+                long combinasyon = faktoryelBul(sayi1) / (faktoryelBul(sayi1 - sayi2) * faktoryelBul(sayi2));
+                System.out.println("C(" + sayi1 + "," + sayi2 + ")= " + combinasyon);
             }
             System.out.print("Devam etmek için herhangi bır harfi tuslayınız : ");
             scan.next();
 
-        } catch (InputMismatchException e) {
-            System.out.println("\ntam sayı gırmenız gerekıyor...");
 
-        }
 
 
     }
@@ -90,31 +88,28 @@ islemMenu();
         System.out.print("\n=======    PERMUTASYON HEAPLAMA    ======= \n");
 
 
-        try {
+
             System.out.print("Permutasyonu hesaplanacak sayıyı gırınız : ");
-          int   sayi1=scan.nextInt();
-            System.out.print(sayi1+" sayısının kaclı permutasyonunu almak istiyorsunuz.");
-           int  sayi2=scan.nextInt();
-            if (sayi1<sayi2){
+            int sayi1 = scan.nextInt();
+            System.out.print(sayi1 + " sayısının kaclı permutasyonunu almak istiyorsunuz.");
+            int sayi2 = scan.nextInt();
+            if (sayi1 < sayi2) {
                 System.out.println("permutasyonu alınacak sayıdan daha buyuk sayı gıremezsınız. Tekrar deneyınız.");
                 permutasyon();
-            }else {
-                long permutasyon=faktoryelBul(sayi1)/faktoryelBul(sayi1-sayi2);
-                System.out.println("P("+sayi1+","+sayi2+")= "+permutasyon);
+            } else {
+                long permutasyon = faktoryelBul(sayi1) / faktoryelBul(sayi1 - sayi2);
+                System.out.println("P(" + sayi1 + "," + sayi2 + ")= " + permutasyon);
             }
             System.out.print("Devam etmek için herhangi bır harfi tuslayınız : ");
             scan.next();
-        } catch ( InputMismatchException e ) {
-            System.out.println("\ntam sayı gırmenız gerekıyor...");
 
-        }
 
 
     }
 
-    public  static long faktoryelBul(int sayi) {
-        if (sayi<=0) return 1;
-        return sayi*faktoryelBul(sayi-1);
+    public static long faktoryelBul(int sayi) {
+        if (sayi <= 0) return 1;
+        return sayi * faktoryelBul(sayi - 1);
     }
 
 

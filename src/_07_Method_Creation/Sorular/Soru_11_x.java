@@ -3,7 +3,7 @@ package _07_Method_Creation.Sorular;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Soru_11 {
+public class Soru_11_x {
         /*
         Problem Tanımı:
         plusOne adında bir method oluşturun.
